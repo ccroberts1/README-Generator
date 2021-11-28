@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown");
 // TODO: Create an array of questions for user input
 const questions = [
   {
@@ -39,9 +40,7 @@ const questions = [
     name: "license",
     choices: [
       "Apache License 2.0",
-      "GNU AGPLv2",
       "GNU GPLv3",
-      "GNU LGPLv3",
       "MIT",
       "Mozilla Public License 2.0",
       "Boost Software License 1.0",
@@ -68,32 +67,7 @@ function writeToFile(fileName, data, callback) {
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((response) => {
-    const result = `# ${response.title}
-## Description
-${response.description}
-## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
-- [Badges](#badges)
-- [How to Contribute](#contributing)
-- [Tests](#tests)
-
-## Installation
-${response.install}
-## Usage
-${response.usage}
-## Credits
-
-## License
-${response.license}
-## Badges
-
-## Contributing
-${response.contribution}
-## Tests
-${response.test}`;
+    const result = generateMarkdown(response);
     writeToFile("examplereadme", result, (err) => {
       err
         ? console.log("Oops, something went wrong! Please try again")
