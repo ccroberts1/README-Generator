@@ -65,19 +65,30 @@ ${data.description}
 - [Tests](#tests)
 
 ## Installation
+To install necessary dependencies, use the following command:
+~~~
 ${data.install}
+~~~
 ## Usage
 ${data.usage}
-## Credits
 
 ${renderLicenseSection(data.license)}
-
-## Badges
 
 ## Contributing
 ${data.contribution}
 ## Tests
-${data.test}`;
+To run tests, run the following command:
+~~~
+${data.test}
+~~~
+
+## Questions
+If you have any questions, please open an issue or reach out to me via email at <${
+    data.email
+  }>. You can find more of my work at [${data.username}](https://github.com/${
+    data.username
+  })
+`;
 }
 
 module.exports = generateMarkdown;

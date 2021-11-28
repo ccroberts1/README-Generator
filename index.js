@@ -6,6 +6,16 @@ const generateMarkdown = require("./utils/generateMarkdown");
 const questions = [
   {
     type: "input",
+    message: "What is your GitHub username?",
+    name: "username",
+  },
+  {
+    type: "input",
+    message: "What is your email?",
+    name: "email",
+  },
+  {
+    type: "input",
     message: "What is the title of your project?",
     name: "title",
   },
@@ -16,8 +26,9 @@ const questions = [
   },
   {
     type: "input",
-    message: "Please provide step-by-step instructions for installation:",
+    message: "What command should be used to install the dev environment?",
     name: "install",
+    default: "npm i",
   },
   {
     type: "input",
@@ -31,7 +42,7 @@ const questions = [
   },
   {
     type: "input",
-    message: "Please provide test instructions:",
+    message: "What command should be used to run tests?",
     name: "test",
   },
   {
@@ -47,16 +58,6 @@ const questions = [
       "The Unlicense",
     ],
   },
-  {
-    type: "input",
-    message: "What is your GitHub username?",
-    name: "username",
-  },
-  {
-    type: "input",
-    message: "What is your email?",
-    name: "email",
-  },
 ];
 
 // TODO: Create a function to write README file
@@ -71,7 +72,7 @@ function init() {
     writeToFile("examplereadme", result, (err) => {
       err
         ? console.log("Oops, something went wrong! Please try again")
-        : console.log("Success!");
+        : console.log("Generating README...");
     });
   });
 }
