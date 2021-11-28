@@ -58,9 +58,7 @@ ${data.description}
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
-- [Credits](#credits)
 - [License](#license)
-- [Badges](#badges)
 - [How to Contribute](#contributing)
 - [Tests](#tests)
 

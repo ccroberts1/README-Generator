@@ -69,7 +69,7 @@ function writeToFile(fileName, data, callback) {
 function init() {
   inquirer.prompt(questions).then((response) => {
     const result = generateMarkdown(response);
-    writeToFile("examplereadme", result, (err) => {
+    writeToFile("exampleREADME.md", result, (err) => {
       err
         ? console.log("Oops, something went wrong! Please try again")
         : console.log("Generating README...");
